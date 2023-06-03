@@ -1,0 +1,225 @@
+html file:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AM WEBTECH</title>
+    <!--CUSTOM CSS-->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <input type="radio" name="photos" id="check1" checked>
+    <input type="radio" name="photos" id="check2" >
+    <input type="radio" name="photos" id="check3" >
+    <input type="radio" name="photos" id="check4" >
+
+    <div class="container">
+        <h1> PHOTO GALLERY</h1>
+        <div class="top-content">
+            <h3>PHOTO GALLERY</h3>
+            <label for="check1">ALL PHOTOS</label>
+            <label for="check2">ANIMAL PHOTOS</label>
+            <label for="check3">PLANTS PHOTOS</label>
+            <label for="check4">CARS PHOTOS</label>
+        </div>
+
+        <div class="photo-gallery">
+            <div class="pic plants">
+                <img src="p1.jpg">
+            </div>
+            <div class="pic animals">
+                <img src="a1.jpg">
+            </div>
+            <div class="pic cars">
+                <img src="c1.jpg">
+            </div>
+            <div class="pic plants">
+                <img src="p2.jpg">
+            </div>
+            <div class="pic animals">
+                <img src="a2.jpg">
+            </div>
+            <div class="pic cars">
+                <img src="c2.jpg">
+            </div>  
+            <div class="pic plants">
+                <img src="p3.jpg">
+            </div>
+            <div class="pic animals">
+                <img src="a3.jpg">
+            </div>
+            <div class="pic cars">
+                <img src="c3.jpg">
+            </div>  
+            <div class="pic plants">
+                <img src="p4.jpg">
+            </div>
+            <div class="pic animals">
+                <img src="a4.jpg">
+            </div>
+            <div class="pic cars">
+                <img src="c4.jpg">
+            </div>
+            <div class="pic plants">
+                <img src="p5.jpg">
+            </div>
+            <div class="pic animals">
+                <img src="a5.jpg">
+            </div>
+            <div class="pic cars">
+                <img src="c5.jpg">
+            </div>    
+        
+            
+
+
+
+        </div>
+    </div>
+</body>
+</html>
+
+
+
+
+
+css file:
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+input{
+    display: none;
+}
+.container{
+    width: 100%;
+    text-align: center;
+
+}
+h1{
+    font-weight: normal;
+    font-size: 35px;
+    position: relative;
+    margin: 40px 0;
+}
+h1::before{
+    content: '';
+    position: absolute;
+    width: 100px;
+    height: 3px;
+    background-color: crimson;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: animate 4s linear infinite;
+}
+@keyframes animate {
+    0%{
+        width: 100px;
+    }
+    50%{
+        width: 200px;
+    }
+    100%{
+        width: 100px;
+    }
+}
+.top-content{
+    background-color: rgb(237, 224, 224);
+    width: 90%;
+    margin: 0 auto 20px auto;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    border-radius: 5px;
+    box-shadow: 3px 3px 5px lightgray;
+}
+h3{
+    height: 100%;
+    background-color: rgb(238, 231, 231);
+    line-height: 60px;
+    padding: 0 50px;
+    color: white;
+}
+label{
+    display: inline-block;
+    height: 100px;
+    margin: 0 20px;
+    line-height: 60px;
+    font-size: 18px;
+    color: gray;
+    cursor: pointer;
+    transition: color .5s;
+}
+label::hover{
+    color: black;
+}
+.photo-gallery{
+    width: 90%;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap:20px;
+}
+.pic{
+    position: relative;
+    height: 100px;
+    border-radius: 10px;
+    box-shadow: 3px 3px 5px lightgrey;
+    cursor: pointer;
+    transition: .5s;
+}
+.pic img{
+    width: 100%;
+    height: 100px;
+    border-radius: 10px;
+}
+#check1:checked ~ .container .photo-gallery .pic{
+    opacity: 1;
+    transform: scale(1);
+    position: relative;
+    transition: .5s;
+}
+#check2:checked ~ .container .photo-gallery .animals{
+    opacity: 1;
+    transform: scale(1);
+    position: relative;
+   
+}
+#check2:checked ~ .container .photo-gallery .cars,
+#check2:checked ~ .container .photo-gallery .plants{
+opacity: 0;
+transform: scale(0);
+position: absolute;
+transition: 0s;
+}
+#check3:checked ~ .container .photo-gallery .cars{
+    opacity: 1;
+    transform: scale(1);
+    position: relative;
+   
+}
+#check3:checked ~ .container .photo-gallery .animals,
+#check3:checked ~ .container .photo-gallery .plants{
+opacity: 0;
+transform: scale(0);
+position: absolute;
+transition: 0s;
+}
+#check4:checked ~ .container .photo-gallery .plants{
+    opacity: 1;
+    transform: scale(1);
+    position: relative;
+   
+}
+#check4:checked ~ .container .photo-gallery .animals,
+#check4:checked ~ .container .photo-gallery .cars{
+opacity: 0;
+transform: scale(0);
+position: absolute;
+transition: 0s;
+}
